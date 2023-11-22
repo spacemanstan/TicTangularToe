@@ -1,12 +1,4 @@
-<h1>Current Player: {{ player }} </h1>
-
-<button nbButton outline status="danger test" (click)="newGame()">Start new Game</button>
-
-
-<h2 class="test" *ngIf="winner">
-    Player {{ winner }} won the game!
-</h2>
-
+<h1><div>Current Player: {{ player }}</div></h1>
 
 <main>
     <app-square 
@@ -16,3 +8,9 @@
 
     </app-square>
 </main>
+
+<button nbButton outline status="danger test" (click)="newGame()">Start new Game</button>
+
+<h2 class="test" *ngIf="winner">
+    Player {{ winner }} won the game!
+</h2>
