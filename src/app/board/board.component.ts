@@ -67,6 +67,6 @@ export class BoardComponent {
       }
     }
 
-    return null;
+    return "";
   }
 }
