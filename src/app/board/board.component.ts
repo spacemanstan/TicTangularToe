@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SquareComponent } from '../square/square.component';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SquareComponent],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
@@ -32,7 +33,7 @@ export class BoardComponent {
   }
 
   makeMove(idx: number) {
-    if (!this.squares[ix]) {
+    if (!this.squares[idx]) {
       this.squares.splice(idx, 1, this.player);
       this.xIsNext = !this.xIsNext;
     }
