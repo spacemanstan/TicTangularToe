@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    /* original blue colour scheme; prime: 1095c1; background: aliceblue; */
+    --colour-primary: #4caf50;
+    --colour-background: #e5f6e6;
+}
+
+body {
+    font: 14px cursive, Futura, sans-serif;
+    margin: 20px;
+    background-color: var(--colour-background);
+}

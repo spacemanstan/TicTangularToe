@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
   selector: 'app-square',
   standalone: true,
   imports: [CommonModule],
+  styleUrl: './square.component.scss',
   template: `
-    <p>
+    <button>
       {{ value }}
-    </p>
+    </button>
   `,
   styles: ``
 })

@@ -14,7 +14,9 @@ export class BoardComponent {
   xIsNext: boolean;
   winner: string;
 
-  constructor() { }
+  constructor() {
+    this.newGame();
+   }
 
   // intial setupwork
   ngOnIntit() {
