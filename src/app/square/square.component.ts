@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,11 +7,13 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <p>
-      square works!
+      {{ value }}
     </p>
   `,
   styles: ``
 })
 export class SquareComponent {
+
+  @Input() value: 'X' | 'O';
 
 }
