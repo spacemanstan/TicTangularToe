@@ -15,6 +15,7 @@ export class BoardComponent {
   winner: string;
 
   constructor() {
+    // this is needed for a game grid to load on page load
     this.newGame();
    }
 
