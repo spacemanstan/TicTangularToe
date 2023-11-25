@@ -17,7 +17,7 @@ export class BoardComponent {
   constructor() {
     // this is needed for a game grid to load on page load
     this.newGame();
-   }
+  }
 
   // intial setupwork
   ngOnIntit() {
@@ -35,11 +35,14 @@ export class BoardComponent {
     return this.xIsNext ? 'X' : 'O';
   }
 
-  makeMove(idx: number) {
-    if (!this.squares[idx]) {
-      this.squares.splice(idx, 1, this.player);
-      this.xIsNext = !this.xIsNext;
+  makeMove(idx: number): void {
+    // no moves if winner
+    if (this.winner && (this.winner.toUpperCase() === 'X' || this.winner.toUpperCase() === 'O')) {
+      return;
     }
+
+    this.squares[idx] = this.player; // Update the square directly by index
+    this.xIsNext = !this.xIsNext;
 
     this.winner = this.calculateWinner();
   }
