@@ -2,14 +2,14 @@
 
 <main>
     <app-square 
-        *ngFor="let val of squares; let i = index" 
+        *ngFor="let val of squares; let i = index; trackBy: trackByFn" 
         [value]="val"
         (click)="makeMove(i)"> 
 
     </app-square>
 </main>
 
-<button nbButton outline status="danger test" (click)="newGame()">Start new Game</button>
+<button nbButton outline status="danger" (click)="newGame()">Start new Game</button>
 
 <h2 class="test" *ngIf="winner">
     Player {{ winner }} won the game!

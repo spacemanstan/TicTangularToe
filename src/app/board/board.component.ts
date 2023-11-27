@@ -9,6 +9,7 @@ import { SquareComponent } from '../square/square.component';
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
+
 export class BoardComponent {
   squares: any[];
   xIsNext: boolean;
@@ -17,7 +18,7 @@ export class BoardComponent {
   constructor() {
     // this is needed for a game grid to load on page load
     this.newGame();
-   }
+  }
 
   // intial setupwork
   ngOnIntit() {
@@ -31,15 +32,27 @@ export class BoardComponent {
     this.xIsNext = true;
   }
 
+  // passed into the NgForOf directive to customize how NgForOf uniquely identifies items
+  // fixes 
+  trackByFn(index: number, item: any): any {
+    return index; // or return a unique identifier if available
+  }
+
   get player() {
     return this.xIsNext ? 'X' : 'O';
   }
 
-  makeMove(idx: number) {
-    if (!this.squares[idx]) {
-      this.squares.splice(idx, 1, this.player);
-      this.xIsNext = !this.xIsNext;
+  makeMove(idx: number): void {
+    // no moves if winner
+    if (this.winner && (this.winner.toUpperCase() === 'X' || this.winner.toUpperCase() === 'O')) {
+      return;
     }
+
+    // prevent overwriting 
+    if(this.squares[idx] != null) return;
+
+    this.squares[idx] = this.player; // Update the square directly by index
+    this.xIsNext = !this.xIsNext;
 
     this.winner = this.calculateWinner();
   }
